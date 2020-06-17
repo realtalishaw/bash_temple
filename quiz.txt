@@ -1,0 +1,15 @@
+Hi, Friend! We're on the hunt for the treasure of the Bash Temple! Can you help us out? Press <enter> to begin!
+First, we need a map- use the command that tells us where we are! #pwd
+We're at the base of the temple! Let's read the map! Use the command that lists what's inside of something! #ls
+Looks like we just need to follow this path... let's change where we are. What command would help us to get on the /main/path? #cd /main/path
+We're well on our way now! Oh no, there's a fallen boulder in our path? What command would help us remove boulder.txt from the /main/path? #rm boulder.txt
+Woo! That was a close one! We've made it inside the temple. Let's read our map again, this time let's show any hidden messages. #ls -a
+Look at that! There's a secret passage under this box! But, wait there's something inside of the box. Use the command that would let us display the content of the box.txt #cat box.txt
+It's a clue! "To find what you seek, you must first find me" We need to search /secret/path for a key! #grep key /secret/path
+We found the key! Let's continue to follow the path, and see where it leads. How can we find out where we are now? #pwd
+Great! It looks like there's a light ahead. But, it's too dark to see! How can we display our next 10 steps? Use the command that displays the first few lines of /secret/path # head /secret/path
+Uh-oh! Looks like there's a trap! We can only step on each tile exactly ONCE and in order! Use the command that prints the only the tiles that appear EXACTLY once, sorted, and only one step per tile! #sort | uniq -u
+We made it! There's a door! Now, we must insert the key! Use the command that prints "key" inside of door.txt #echo "key" > door.txt
+Oh no, we're missing permissions! How can we change the permissions of our door.txt to execute when we insert the key? #chmod u+x door.txt
+Yay! We finally got it open! I can't wait to find out what's on the other side! But first, let's remove all the X and x from the room. #tr -d [X,x]
+Now we can be sure there's no traps! We open and the door and there it is! The Treasure of the Bash Temple! Display the contents of the bash_temple.txt! #cat bash_temple.txt
