@@ -1,78 +1,116 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int scan_answer(char answer);
-int answer_loop();
-int sorting(int A, int B, int C, int D);
-
 int main ()
 {
-      	printf("1. How many hours of sleep do you get per night?\nA - What is sleep?\nB - As much as I want\nC - The optimal amount\nD - Do naps during Live codes count?\n");
-	answer_loop();
-
-	printf("2. What us your drink of choice?\nA - Coffee: The drink of champions!\nB - Wouldn't taste that if I were you...\nC - Tea: It helps me focus\nD - Energy Drink: Got to stay ahead!\n");
-		answer_loop();
-
-	printf("3. Which text editor do you prefer?\nA - Emacs\nB - VI\nC - VIM\nD - My own(Don't tell the TAs!)\n");
-	answer_loop();
-
-	printf("4. Do you attemp the advanced tasks?\nA - Always! I'm up for the challenge\nB - Advanced what now?\nC - Of course!\nD - only if I know the answer!\n");
-		answer_loop();
-
-		printf("5. How do you feel about Betty?\nA - Nothing I can't conquer\nB - Who's Betty?\nC - It's necessary for me to improve\nD - I am her master\n");
-		answer_loop();
-
-	printf("6. Your relationship with the checker is...\nA - Mutual: we help each other\nB - Not the best\nC - I always get green checks\nD - I gamed the system, so I always pass\n");
-	answer_loop();
-
-	printf("7. What does your slack look like?\nA - Not afraid to ask for help\nB - Always there for support\nC - Sharing lots of tips\nD - Focused on my projects\n");
-	answer_loop(); 
-	return 0;
-}
-
-/* checks and saves answer */
-	int answer_loop()
+char questions[7][1024] = 
 {
-	char answer;
+	"1. How many hours of sleep do you get per night?",
+	"2. What is your drink of choice?",
+	"3. Which text editor do prefer?",
+	"4. Do you attempt the advanced tasks?",
+	"5. How do you feel about Betty?",
+	"6. Your relationship with the checker is...",
+	"7. What does your slack look like?",
+};
 
+char A[7][1024] =
+{
+	"A. What is sleep?",
+	"A. Coffee: The drink of champions!",
+	"A. Emacs",
+	"A. Always! I'm up for the challenge!",
+	"A. Nothing I can't conquer.",
+	"A. Mutual: We help each other",
+	"A. Not afraid to ask for help",
+};
+
+char B[7][1024] =
+{
+	"B. As much as I want",
+	"B. Wouldn't taster that if I were you...",
+	"B. VI",
+	"B. Advanced what now?",
+	"B. Who's Betty?",
+	"B. Not the Best",
+	"B. Always there for support",
+};
+
+char C[7][1024] =
+{
+	"C. The optimal amount",
+	"C. Tea: It helps me focus",
+	"C. VIM",
+	"C. Of course!",
+	"C. It's necessary for me to improve",
+	"C. I always get green checks",
+	"C. Sharing lots of tips",
+};
+
+char D[7][1024] = 
+{
+	"D. Do naps during live codes count?",
+	"D. Energy Drink: Got to Stay Ahead",
+	"D. My own (Don't tell Derek!)",
+	"D. Only if I know the answer!",
+	"D. I am her master!",
+	"D. I gamed the system, so I always get all checks",
+	"D. Not engaged, focused mainly on my own projects",
+};
+
+char answer;
+int n = 0;
+int gryffindor = 0;
+int h = 0;
+int ravenclaw = 0;
+int slytherin = 0;
+
+while(n < 7)
+{
+	printf("%s\n", questions[n]);
+	printf("%s\n", A[n]);
+	printf("%s\n", B[n]);
+	printf("%s\n", C[n]);
+	printf("%s\n", D[n]);
 	printf("Your Answer:");
-	scanf("%c", &answer);
-	scan_answer(answer);
-	return 0;
-}
+	scanf(" %c", &answer);
+	printf("\n");
 
-/*stores how many times a certain answer was given */
-
-int scan_answer(char answer)
-{ 
-	int gryffindor = 0;
-	int hufflepuff = 0;
-	int raven_claw = 0;
-	int slytherin = 0;
-
-	if (answer == 'A')
-		gryffindor = gryffindor + 1;
-	else if (answer == 'B')
-		hufflepuff = hufflepuff + 1;
-	else if (answer == 'C')
-		raven_claw = raven_claw + 1;
-	else if (answer == 'D')
-		slytherin = slytherin + 1;
-	else 
-	{
-		printf("Please enter A, B, C, or D!\n");
-		continue;
-	}
-	return 0;
-}
-
-/* checks values of stored ints 
-
-int sorting(int gryffindor, int hufflepuff, int raven_claw, int slytherin)
+if('a' == answer || 'A' == answer)
 {
-	if ()
-		printf("Gryffindor!\nWhen it comes to software programming, you're not afraid to be daring! You try it all even if it means failure!");
-	return 0;
+	gryffindor = gryffindor + 1;
 }
-*/
-   
+
+else if('b' == answer || 'B' == answer)
+{
+	h = h + 1;
+}
+
+else if('c' == answer || 'C' == answer )
+{
+	ravenclaw = ravenclaw + 1;
+}
+
+else if('d' == answer || 'D' == answer)
+{
+	slytherin = slytherin + 1;
+}
+n++;
+continue;
+
+}
+
+if(gryffindor > h && gryffindor > ravenclaw && gryffindor > slytherin)
+	printf("Gryffindor!\nWhen it comes to software programming, you're not afraid to be daring! You try it all, even if it means failure!\n");
+
+else if(h > gryffindor && h > ravenclaw && h > slytherin)
+	printf("Hufflepuff!\nYou may not be the best programmer yet, but your patience, hard work, and loyalty will truly pay off in the end!\n");
+
+else if(ravenclaw > gryffindor && ravenclaw > h && ravenclaw > slytherin)
+	printf("Ravenclaw!\nYou are the master of your own code! Your creativity and intelligence helps you solve problems efficiently and thoroughly\n");
+
+else if(slytherin > gryffindor && slytherin > h && slytherin > ravenclaw)
+	printf("Slytherin!\nYou're an ambitious programmer who knows the sky is never the limit. You use your resources wisely and are cunning with a keyboard.\n");
+
+       return(0);
+}
